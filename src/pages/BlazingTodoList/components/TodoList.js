@@ -25,7 +25,7 @@ const getUpdateTodo = (todos, updatedTodo) => {
   todos[index] = updatedTodo;
   return [...todos];
 }
-export default function TodoList({ visibleType }) {
+export default function TodoList({ visibleType, theme }) {
   const [todos, setTodos] = useState(initialTodos)
   const filteredTodos = getFiltered(todos, visibleType)
   const handleChange = (todo) => { setTodos(todos => getUpdateTodo(todos, todo))}
@@ -33,10 +33,10 @@ export default function TodoList({ visibleType }) {
     <div>
       <ul>
         { filteredTodos.map(todo => (
-          <Todo key={todo.id} todo={todo} onChange={handleChange} />
+          <Todo key={todo.id} todo={todo} onChange={handleChange} theme={theme} />
         ))}
       </ul>
-      <AddTodo setTodos={setTodos} totalLength={todos.length} />
+      <AddTodo setTodos={setTodos} totalLength={todos.length} theme={theme} />
     </div>
   )
 }

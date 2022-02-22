@@ -3,13 +3,20 @@ import ColorPicker from '../../components/ColorPicker'
 import Select from '../../components/Select'
 import TodoList from './components/TodoList'
 export default function BlazingTodoList() {
-  const [theme, setTheme] = useState('#333333')
+  const [theme, setTheme] = useState('#045975')
   const [visibleType, setVisibleType] = useState('all');
+
+  const bgGradient = `linear-gradient(
+    289.21deg,
+    rgb(8, 126, 164) 13.57%,
+    ${theme} 98.38%
+  )`;
+
   return (
     <div>
-      <div>
+      <div style={{ background: bgGradient }}>
         <header>
-          <ColorPicker />
+          <ColorPicker setTheme={setTheme} />
           <div>
             <Select
               visibleType={visibleType}
@@ -22,7 +29,7 @@ export default function BlazingTodoList() {
             />
           </div>
         </header>
-        <TodoList visibleType={visibleType} />
+        <TodoList visibleType={visibleType} theme={theme} />
       </div>
     </div>
   )

@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
-import ColorPicker from '../../components/ColorPicker'
-import Select from '../../components/Select'
+import ColorPicker from 'components/ColorPicker'
+import BlockWrapper from 'components/BlcokWrapper'
+import Select from 'components/Select'
 import TodoList from './components/TodoList'
+
 export default function BlazingTodoList() {
   const [theme, setTheme] = useState('#045975')
   const [visibleType, setVisibleType] = useState('all');
@@ -17,7 +19,7 @@ export default function BlazingTodoList() {
       <div style={{ background: bgGradient }}>
         <header>
           <ColorPicker setTheme={setTheme} />
-          <div>
+          <BlockWrapper size='small' style={{ background: bgGradient }}>
             <Select
               visibleType={visibleType}
               onChange={value => setVisibleType(value)}
@@ -27,7 +29,7 @@ export default function BlazingTodoList() {
                 { id: 3, value: 'completed', label: 'Completed' },
               ]}
             />
-          </div>
+          </BlockWrapper>
         </header>
         <TodoList visibleType={visibleType} theme={theme} />
       </div>

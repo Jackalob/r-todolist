@@ -1,22 +1,23 @@
 import React from 'react'
 import PropTypes from 'prop-types';
+import { StyledOptionWrapper, StyledOption } from './style';
 
 export default function Select({ visibleType, options, onChange }) {
   return (
-    <ul>
+    <StyledOptionWrapper>
       { options.map(option =>
-        <li
-          key={option.id}
-          className={`${visibleType === option.value ? 'active': ''}`}
+        <StyledOption
+          key={option.id} 
+          active={visibleType === option.value && true}
         >
           <option
             value={option.value}
             label={option.label}
             onClick={e => onChange(e.target.value)}
           />
-        </li>)
+        </StyledOption>)
       }
-    </ul>
+    </StyledOptionWrapper>
   )
 }
 

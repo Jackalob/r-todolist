@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import Todo from './Todo'
 import AddTodo from './AddTodo'
+import { BlockWrapper } from 'components/Globals'
+import { getBlockGradient } from 'components/Globals'
 
 const initialTodos = [{ id: 1, title: 'test', done: true }]
 const getFiltered = (todos, type) => {
@@ -33,7 +35,7 @@ export default function TodoList({ visibleType, theme }) {
     <div>
       <ul>
         { filteredTodos.map(todo => (
-          <Todo key={todo.id} todo={todo} onChange={handleChange} theme={theme} />
+            <Todo key={todo.id} todo={todo} onChange={handleChange} theme={theme} />
         ))}
       </ul>
       <AddTodo setTodos={setTodos} totalLength={todos.length} theme={theme} />

@@ -1,4 +1,6 @@
 import React, { createRef } from 'react'
+import { getBlockGradient } from 'components/Globals'
+import { NewTodo } from '../style'
 
 export default function AddTodo({ setTodos, totalLength, theme = '#045975' }) {
   const inputRef = createRef('')
@@ -13,17 +15,16 @@ export default function AddTodo({ setTodos, totalLength, theme = '#045975' }) {
       inputRef.current.value = '';
     }
   }
-
-  const bgGradient = `linear-gradient(
-    289.21deg,
-    ${theme}22 0%,
-    ${theme}ee 100%
-  )`;
   
   return (
-    <div style={{ background: bgGradient }}>
-      <input type='text' ref={inputRef} onKeyDown={addTodo} />
+    <NewTodo style={{ background: getBlockGradient(theme) }}>
+      <input
+        type='text'
+        ref={inputRef}
+        onKeyDown={addTodo}
+        placeholder='Add Todo'
+      />
       <button onClick={addTodo}>Add</button>
-    </div>
+    </NewTodo>
   )
 }

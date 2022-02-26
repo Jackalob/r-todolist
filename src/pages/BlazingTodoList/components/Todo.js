@@ -1,5 +1,7 @@
 import React from 'react'
+import { getBlockGradient } from 'components/Globals'
 import CountBadge from '../../../components/CountBadge';
+import { ListItem } from '../style';
 
 export default function Todo({ todo, onChange, theme = '#045975' }) {
   const handleChange = (e) => {
@@ -7,14 +9,8 @@ export default function Todo({ todo, onChange, theme = '#045975' }) {
     onChange({ done: !done, ...others });
   }
 
-  const bgGradient = `linear-gradient(
-    289.21deg,
-    ${theme}22 0%,
-    ${theme}ee 100%
-  )`;
-
   return (
-    <li style={{ background: bgGradient }}>
+    <ListItem style={{ background: getBlockGradient(theme) }}>
       <input
         type="checkbox"
         defaultChecked={todo.done}
@@ -25,6 +21,6 @@ export default function Todo({ todo, onChange, theme = '#045975' }) {
       <span>
         <CountBadge />
       </span>
-    </li>
+    </ListItem>
   )
 }

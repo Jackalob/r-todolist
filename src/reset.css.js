@@ -8,8 +8,6 @@ export default createGlobalStyle`
     margin: 0;
     outline: 0;
     text-rendering: optimizeLegibility;
-    -webkit-appearance: none;
-    -moz-appearance: none;
   }
 
   *,
@@ -46,5 +44,6 @@ export default createGlobalStyle`
   
   ul, li {
     list-style: none;
+    padding: 0;
   }
 `

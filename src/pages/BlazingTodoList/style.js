@@ -3,9 +3,9 @@ import {
   FullContainer,
   StyledWrapper,
   FlexRow,
-} from 'src/components/Globals'
+} from 'src/components/Globals';
 
-export const FullBg = styled.div`
+export const FullHeight = styled.div`
   width: 100%;
   height: 100vh;
   background-color: ${({ bgColor }) => bgColor || '#212129' };
@@ -28,6 +28,13 @@ export const RemoveButton = styled.button`
   visibility: hidden;
   transition: all .2s ease-in-out;
   border: 0;
+  padding: 0;
+  fill: #C4DBEB;
+  cursor: pointer;
+  > svg {
+    width: 100%;
+    height: 100%;
+  }
 `
 
 export const ListItem = styled(StyledWrapper)`
@@ -45,7 +52,10 @@ export const ListItem = styled(StyledWrapper)`
 
 export const FlexCenter = styled(FlexRow)`
   align-items: center;
-  > span {
+`
+
+export const FlexBlock = styled(FlexCenter)`
+  > div, span, input {
     margin-right: 8px;
     &: last-child {
       margin: 0;

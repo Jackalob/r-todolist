@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { FullBg, FullCenter } from './style'
-import { getGradient } from 'components/Globals'
-import Header from 'components/Header'
-import RoundCard from 'components/Card'
-import ColorPicker from 'components/ColorPicker'
-import { BlockWrapper } from 'components/Globals'
-import Select from 'components/Select'
+import { getGradient } from 'src/components/Globals'
+import Header from 'src/components/Header'
+import RoundCard from 'src/components/Card'
+import ColorPicker from 'src/components/ColorPicker'
+import { BlockWrapper } from 'src/components/Globals'
+import Select from 'src/components/Select'
 import TodoList from './components/TodoList'
 
 export default function BlazingTodoList() {

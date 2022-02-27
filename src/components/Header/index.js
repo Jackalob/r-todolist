@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { FlexRow } from 'components/Globals'
+import { FlexRow } from 'src/components/Globals'
 
 export const StyledHeader = styled(FlexRow)`
   margin-bottom: 12px;

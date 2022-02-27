@@ -2,8 +2,12 @@ import React from 'react'
 import styled from 'styled-components';
 
 const StyledBadge = styled.div`
-  height: 80%;
-  padding: 2px 8px;
+  min-width: 22px;
+  height: 22px;
+  padding: 2px 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #F3BA18;
   color: #333;
   border-radius: 20px;

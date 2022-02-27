@@ -1,5 +1,6 @@
 import React from 'react'
 import { getBlockGradient } from 'components/Globals'
+import Checkbox, { CheckboxLabel } from 'components/Checkbox';
 import CountBadge from '../../../components/CountBadge';
 import { ListItem } from '../style';
 
@@ -11,12 +12,12 @@ export default function Todo({ todo, onChange, theme = '#045975' }) {
 
   return (
     <ListItem style={{ background: getBlockGradient(theme) }}>
-      <input
+      <Checkbox
         type="checkbox"
         defaultChecked={todo.done}
         onChange={handleChange}
       />
-      <span>{ todo.title }</span>
+      <CheckboxLabel>{ todo.title }</CheckboxLabel>
       <span>remove button</span>
       <span>
         <CountBadge />

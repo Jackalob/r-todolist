@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import Todo from './Todo'
 import AddTodo from './AddTodo'
 
@@ -28,16 +28,20 @@ const getUpdateTodo = (todos, updatedTodo) => {
 const getFilteredTodo = (todos, targetTodo) => {
   return todos.filter(todo => todo.id !== targetTodo.id);
 }
+
+const MemorizedTodo = React.memo(Todo);
+
 export default function TodoList({ visibleType, theme }) {
   const [todos, setTodos] = useState(initialTodos)
   const filteredTodos = getFiltered(todos, visibleType)
-  const handleChange = (todo) => { setTodos(todos => getUpdateTodo(todos, todo)) }
-  const handleDelete = (todo) => { setTodos(todos => getFilteredTodo(todos, todo)) }
+  const handleChange = useCallback((todo) => { setTodos(todos => getUpdateTodo(todos, todo)) }, [])
+  const handleDelete = useCallback((todo) => { setTodos(todos => getFilteredTodo(todos, todo)) }, [])
+  
   return (
     <div>
       <ul>
         { filteredTodos.map(todo => (
-          <Todo
+          <MemorizedTodo
             key={todo.id}
             todo={todo}
             theme={theme}

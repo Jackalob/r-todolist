@@ -14,12 +14,12 @@ export default function AddTodo({ setTodos, totalLength, theme = '#045975' }) {
         done: false,
       }
       if (text !== '') {
-        setTodos(todos => [newTodo, ...todos])
+        setTodos(todos => [...todos, newTodo])
         inputRef.current.value = '';
       }
     }
   }
-  
+
   return (
     <NewTodo style={{ background: getBlockGradient(theme) }}>
       <input

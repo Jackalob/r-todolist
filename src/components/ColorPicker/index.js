@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import color from 'color'
 
@@ -14,13 +14,12 @@ const StyledInput = styled.input`
   opacity: 0;
 `
 
-export default function ColorPicker({ theme, setTheme }) {
+export default function ColorPicker({ theme, onChange }) {
   const getThemeColor = () => {
     return color(theme).darken(0.2)
   }
   const changeHandler = (e) => {
-    setTheme(e.target.value)
-    console.log(color(e.target.value))
+    onChange(e)
   }
 
   return (

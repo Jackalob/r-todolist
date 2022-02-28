@@ -11,18 +11,23 @@ import { FullHeight, FullCenter, FlexBlock, TodoListTitle } from './style'
 export default function BlazingTodoList() {
   const [theme, setTheme] = useState('#045975')
   const [visibleType, setVisibleType] = useState('all');
-  const renderTimes = useRef(0)
+  // const renderTimes = useRef(0)
   return (
     <FullHeight>
       <FullCenter>
         <FlexCol>
-          <TodoListTitle>
-            getFiltered() was called { renderTimes.current++ } times
-          </TodoListTitle>
+          {/* <TodoListTitle>
+            <code>
+              getFiltered() was called { renderTimes.current++ } times
+            </code>
+          </TodoListTitle> */}
           <RoundCard style={{ background: getGradient(theme) }}>
             <Header>
               <FlexBlock>
-                <ColorPicker theme={theme} setTheme={setTheme} />
+                <ColorPicker
+                  theme={theme}
+                  onChange={(e) => setTheme(e.target.value)}
+                />
                 <span />
               </FlexBlock>
               <BlockWrapper size='small' style={{ background: getGradient(theme) }}>

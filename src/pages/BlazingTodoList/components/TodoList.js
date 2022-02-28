@@ -1,10 +1,13 @@
-import React, { useState, useCallback } from 'react'
+import React, { useState, useCallback, useMemo } from 'react'
 import Todo from './Todo'
 import AddTodo from './AddTodo'
 
-const initialTodos = [{ id: 1, title: 'test', done: true }]
+const initialTodos = [
+  { id: 1, title: 'test', done: true },
+  { id: 2, title: 'test2' , done: false }
+]
 const getFiltered = (todos, type) => {
-  let filteredTodos = todos
+  let filteredTodos = [...todos]
   switch(type) {
     case 'all':
       break;
@@ -17,7 +20,7 @@ const getFiltered = (todos, type) => {
     default: 
       break;
   }
-  return filteredTodos;
+  return filteredTodos
 }
 const getUpdateTodo = (todos, updatedTodo) => {
   const index = todos.findIndex(todo => todo.id === updatedTodo.id);
@@ -33,10 +36,12 @@ const MemorizedTodo = React.memo(Todo);
 
 export default function TodoList({ visibleType, theme }) {
   const [todos, setTodos] = useState(initialTodos)
-  const filteredTodos = getFiltered(todos, visibleType)
+  const filteredTodos = useMemo(
+    () => getFiltered(todos, visibleType),
+    [todos, visibleType]
+  )
   const handleChange = useCallback((todo) => { setTodos(todos => getUpdateTodo(todos, todo)) }, [])
   const handleDelete = useCallback((todo) => { setTodos(todos => getFilteredTodo(todos, todo)) }, [])
-  
   return (
     <div>
       <ul>

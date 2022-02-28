@@ -54,6 +54,11 @@ export const FlexCenter = styled(FlexRow)`
   align-items: center;
 `
 
+export const TodoListTitle = styled.p`
+  margin-bottom: 12px;
+  color: #fff;
+`
+
 export const FlexBlock = styled(FlexCenter)`
   > div, span, input {
     margin-right: 8px;

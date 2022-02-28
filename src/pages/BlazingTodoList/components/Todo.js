@@ -1,5 +1,4 @@
 import React from 'react'
-import { getBlockGradient } from 'src/components/Globals'
 import Checkbox, { CheckboxLabel } from 'src/components/Checkbox';
 import CountBadge from '../../../components/CountBadge';
 import { ListItem, FlexCenter, FlexBlock, RemoveButton } from '../style';
@@ -15,7 +14,7 @@ export default function Todo({ todo, theme = '#045975', onChange, onDelete }) {
   }
   
   return (
-    <ListItem style={{ background: getBlockGradient(theme) }}>
+    <ListItem>
       <FlexBlock>
         <Checkbox
           type="checkbox"

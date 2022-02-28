@@ -49,7 +49,6 @@ export default function TodoList({ visibleType, theme }) {
           <MemorizedTodo
             key={todo.id}
             todo={todo}
-            theme={theme}
             onChange={handleChange}
             onDelete={handleDelete}
           />

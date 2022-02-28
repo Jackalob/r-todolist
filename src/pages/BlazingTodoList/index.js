@@ -42,7 +42,7 @@ export default function BlazingTodoList() {
                 />
               </BlockWrapper>
             </Header>
-            <TodoList visibleType={visibleType} theme={theme} />
+            <TodoList visibleType={visibleType} />
           </RoundCard>
         </FlexCol>
       </FullCenter>

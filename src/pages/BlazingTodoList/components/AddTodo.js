@@ -1,9 +1,8 @@
 import React, { createRef } from 'react'
-import { getBlockGradient } from 'src/components/Globals'
 import { Button } from 'src/components/Button'
 import { NewTodo } from '../style'
 
-export default function AddTodo({ setTodos, totalLength, theme = '#045975' }) {
+export default function AddTodo({ setTodos, totalLength }) {
   const inputRef = createRef('')
   const addTodo = (e) => {
     if (e.keyCode === 13 || e.keyCode === undefined) {
@@ -21,7 +20,7 @@ export default function AddTodo({ setTodos, totalLength, theme = '#045975' }) {
   }
 
   return (
-    <NewTodo style={{ background: getBlockGradient(theme) }}>
+    <NewTodo>
       <input
         type='text'
         ref={inputRef}

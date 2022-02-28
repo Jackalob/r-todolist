@@ -38,6 +38,7 @@ export const RemoveButton = styled.button`
 `
 
 export const ListItem = styled(StyledWrapper)`
+  background-color: rgba(0, 0, 0, .1);
   margin-bottom: 12px;
   min-height: 50px;
   display: flex;
@@ -71,6 +72,7 @@ export const FlexBlock = styled(FlexCenter)`
 export const NewTodo = styled(StyledWrapper)`
   display: flex;
   justify-content: space-between;
+  background-color: rgba(0, 0, 0, .1);
   > input {
     border: none;
     background: transparent;

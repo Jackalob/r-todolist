@@ -5,13 +5,22 @@ import RoundCard from 'src/components/Card'
 import ColorPicker from 'src/components/ColorPicker'
 import { BlockWrapper } from 'src/components/Globals'
 import Select from 'src/components/Select'
+import { useDebouncedEffect } from "src/hooks/useDebouncedEffect";
 import TodoList from './components/TodoList'
 import { FullHeight, FullCenter, FlexBlock, TodoListTitle } from './style'
 
+
 export default function BlazingTodoList() {
-  const [theme, setTheme] = useState('#045975')
+  const [theme, setTheme] = useState(() => {
+    const localTheme = window.localStorage.getItem('theme')
+    return localTheme || '#045975'
+  })
   const [visibleType, setVisibleType] = useState('all');
   // const renderTimes = useRef(0)
+  useDebouncedEffect(() => {
+    window.localStorage.setItem('theme', theme)
+  }, [theme], 500);
+  
   return (
     <FullHeight>
       <FullCenter>

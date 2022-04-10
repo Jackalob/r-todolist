@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { memo } from 'react'
 import Checkbox, { CheckboxLabel } from 'src/components/Checkbox';
 import CountBadge from '../../../components/CountBadge';
 import { ListItem, FlexCenter, FlexBlock, RemoveButton } from '../style';
 import { ReactComponent as Icon } from 'src/assets/icons/trash-can-solid.svg'
 
-export default function Todo({ todo, theme = '#045975', onChange, onDelete }) {
+function Todo({ todo, theme = '#045975', onChange, onDelete }) {
   const handleChange =  (e) => {
     const { done , ...others} = todo
     onChange({ done: !done, ...others })
@@ -36,3 +36,5 @@ export default function Todo({ todo, theme = '#045975', onChange, onDelete }) {
     </ListItem>
   )
 }
+
+export default memo(Todo)

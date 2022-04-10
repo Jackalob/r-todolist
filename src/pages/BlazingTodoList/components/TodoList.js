@@ -1,10 +1,9 @@
-import React, { useState, useCallback, useMemo } from 'react'
-import Todo from './Todo'
+import React, { useState, useCallback, useMemo, useEffect } from 'react'
+import MemorizedTodo from './Todo'
 import AddTodo from './AddTodo'
 
 const initialTodos = [
   { id: 1, title: 'test', done: true },
-  { id: 2, title: 'test2' , done: false }
 ]
 const getFiltered = (todos, type) => {
   let filteredTodos = [...todos]
@@ -20,7 +19,7 @@ const getFiltered = (todos, type) => {
     default: 
       break;
   }
-  return filteredTodos
+  return filteredTodos;
 }
 const getUpdateTodo = (todos, updatedTodo) => {
   const index = todos.findIndex(todo => todo.id === updatedTodo.id);
@@ -32,16 +31,23 @@ const getFilteredTodo = (todos, targetTodo) => {
   return todos.filter(todo => todo.id !== targetTodo.id);
 }
 
-const MemorizedTodo = React.memo(Todo);
-
 export default function TodoList({ visibleType, theme }) {
-  const [todos, setTodos] = useState(initialTodos)
+  const [todos, setTodos] = useState(() => {
+    return JSON.parse(window.localStorage.getItem('todos')) || []
+  })
   const filteredTodos = useMemo(
     () => getFiltered(todos, visibleType),
     [todos, visibleType]
   )
   const handleChange = useCallback((todo) => { setTodos(todos => getUpdateTodo(todos, todo)) }, [])
   const handleDelete = useCallback((todo) => { setTodos(todos => getFilteredTodo(todos, todo)) }, [])
+
+  useEffect(() => {
+    const setTodosToLocal = () => window.localStorage.setItem('todos', JSON.stringify(todos))
+    setTodosToLocal()
+  }, [todos])
+  
+
   return (
     <div>
       <ul>

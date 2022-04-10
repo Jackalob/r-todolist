@@ -33,7 +33,8 @@ const getFilteredTodo = (todos, targetTodo) => {
 
 export default function TodoList({ visibleType, theme }) {
   const [todos, setTodos] = useState(() => {
-    return JSON.parse(window.localStorage.getItem('todos')) || []
+    const localTodos = JSON.parse(window.localStorage.getItem('todos'))
+    return localTodos || initialTodos
   })
   const filteredTodos = useMemo(
     () => getFiltered(todos, visibleType),

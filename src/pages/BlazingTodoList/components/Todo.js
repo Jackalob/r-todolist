@@ -3,6 +3,7 @@ import Checkbox, { CheckboxLabel } from 'src/components/Checkbox';
 import CountBadge from '../../../components/CountBadge';
 import { ListItem, FlexCenter, FlexBlock, RemoveButton } from '../style';
 import { ReactComponent as Icon } from 'src/assets/icons/trash-can-solid.svg'
+import Tippy from '@tippyjs/react';
 
 function Todo({ todo, theme = '#045975', onChange, onDelete }) {
   const handleChange =  (e) => {
@@ -30,7 +31,9 @@ function Todo({ todo, theme = '#045975', onChange, onDelete }) {
           </RemoveButton>
         </FlexCenter>
         <span>
-          <CountBadge />
+          <Tippy content={<span>render times</span>} arrow={false}>
+            <CountBadge />
+          </Tippy>
         </span>
       </FlexBlock>
     </ListItem>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, forwardRef } from 'react'
 import styled from 'styled-components';
 
 const StyledBadge = styled.div`
@@ -13,12 +13,13 @@ const StyledBadge = styled.div`
   border-radius: 20px;
   font-size: 14px;
 `
-export default function CountBadge(props) {
-  const countRef = React.useRef(0);
+const CountBadge = forwardRef((props, ref) => {
+  const countRef = useRef(0);
   return (
-    <StyledBadge>
+    <StyledBadge ref={ref}>
       <span>{countRef.current++}</span>
     </StyledBadge>
   )
-}
+})
 
+export default CountBadge

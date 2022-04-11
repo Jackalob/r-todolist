@@ -1,14 +1,12 @@
 {
   "files": {
-    "main.css": "/r-todolist/static/css/main.3c782700.css",
-    "main.js": "/r-todolist/static/js/main.24f4ac09.js",
+    "main.css": "/r-todolist/static/css/main.72eb3329.css",
+    "main.js": "/r-todolist/static/js/main.293c9ff0.js",
     "static/media/trash-can-solid.svg": "/r-todolist/static/media/trash-can-solid.f81c0d2dce2a646935c4bc933f5073b8.svg",
-    "index.html": "/r-todolist/index.html",
-    "main.3c782700.css.map": "/r-todolist/static/css/main.3c782700.css.map",
-    "main.24f4ac09.js.map": "/r-todolist/static/js/main.24f4ac09.js.map"
+    "index.html": "/r-todolist/index.html"
   },
   "entrypoints": [
-    "static/css/main.3c782700.css",
-    "static/js/main.24f4ac09.js"
+    "static/css/main.72eb3329.css",
+    "static/js/main.293c9ff0.js"
   ]
 }

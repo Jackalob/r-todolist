@@ -21,12 +21,13 @@ function Todo({ todo, theme = '#045975', onChange, onDelete }) {
           type="checkbox"
           defaultChecked={todo.done}
           onChange={handleChange}
+          data-testid="todo-checkbox"
         />
         <CheckboxLabel>{ todo.title }</CheckboxLabel>
       </FlexBlock>
       <FlexBlock>
-        <FlexCenter onClick={handleRemove}>
-          <RemoveButton>
+        <FlexCenter >
+          <RemoveButton onClick={handleRemove} data-testid="todo-remove-button">
             <Icon />
           </RemoveButton>
         </FlexCenter>

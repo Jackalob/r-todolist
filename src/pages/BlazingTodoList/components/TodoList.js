@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useMemo, useEffect } from 'react'
-import MemorizedTodo from './Todo'
+import Todo from './Todo'
 import AddTodo from './AddTodo'
 
 const initialTodos = [
@@ -53,7 +53,7 @@ export default function TodoList({ visibleType, theme }) {
     <div>
       <ul>
         { filteredTodos.map(todo => (
-          <MemorizedTodo
+          <Todo
             key={todo.id}
             todo={todo}
             onChange={handleChange}

@@ -5,7 +5,6 @@
   "homepage": "https://jackalob.github.io/r-todolist",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.2",
-    "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
     "@tippyjs/react": "^4.2.6",
     "color": "^4.2.1",
@@ -42,5 +41,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@testing-library/react": "^12.1.2",
+    "jest": "^28.0.3"
   }
 }

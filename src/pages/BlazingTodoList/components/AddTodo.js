@@ -26,8 +26,9 @@ export default function AddTodo({ setTodos, totalLength }) {
         ref={inputRef}
         onKeyDown={addTodo}
         placeholder='Add Todo'
+        data-testid="add-todo-input"
       />
-      <Button onClick={addTodo}>Add</Button>
+      <Button onClick={addTodo} data-testid="add-todo-btn">Add</Button>
     </NewTodo>
   )
 }

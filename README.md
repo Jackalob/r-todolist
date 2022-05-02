@@ -1,6 +1,6 @@
 # Todo list
 
-![](https://i.imgur.com/B3QTD8K.png)
+<a href="https://jackalob.github.io/r-todolist/" rel="some text">![](https://i.imgur.com/B3QTD8K.png)</a>
 
 [demo](https://jackalob.github.io/r-todolist/)
 
